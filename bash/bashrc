@@ -1,0 +1,18 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+PS1='[\u@\h \W]\$ '
+
+export EDITOR=vim
+
+HISTSIZE=100000
+HISTFILESIZE=-1
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+

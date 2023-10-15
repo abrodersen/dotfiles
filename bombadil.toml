@@ -1,0 +1,5 @@
+dotfiles_dir = "dotfiles"
+
+[settings.dots]
+bash = { source = "bash/bashrc", target = ".bashrc" }
+git = { source = "git/gitconfig", target = ".gitconfig" }
