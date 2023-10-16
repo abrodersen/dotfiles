@@ -16,3 +16,4 @@ HISTFILESIZE=-1
 shopt -s histappend
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/yubikey-agent/yubikey-agent.sock"
