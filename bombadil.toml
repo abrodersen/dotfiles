@@ -3,3 +3,8 @@ dotfiles_dir = "dotfiles"
 [settings.dots]
 bash = { source = "bash/bashrc", target = ".bashrc" }
 git = { source = "git/gitconfig", target = ".gitconfig" }
+electron = { source = "electron/electron-flags.conf", target = ".config/electron-flags.conf" }
+chromium = { source = "chromium/chromium-flags.conf", target = ".config/chromium-flags.conf" }
+
+[[import]]
+path = "code/code.toml"
