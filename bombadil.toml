@@ -5,7 +5,7 @@ bash = { source = "bash/bashrc", target = ".bashrc" }
 git = { source = "git/gitconfig", target = ".gitconfig" }
 electron = { source = "electron/electron-flags.conf", target = ".config/electron-flags.conf" }
 chromium = { source = "chromium/chromium-flags.conf", target = ".config/chromium-flags.conf" }
-htop = { source = "htop/htoprc", target = ".htoprc" }
+htop = { source = "htop/htoprc", target = ".config/htop/htoprc" }
 
 [[import]]
 path = "code/code.toml"
