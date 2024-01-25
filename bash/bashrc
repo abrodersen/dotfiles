@@ -7,6 +7,7 @@
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+pwgen() { /usr/bin/env pwgen -c -y -1 ${1:-24} ${2:-1}; }
 PS1='[\u@\h \W]\$ '
 
 export EDITOR=vim
@@ -16,4 +17,10 @@ HISTFILESIZE=-1
 shopt -s histappend
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
-export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/yubikey-agent/yubikey-agent.sock"
+
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+
+export HASS_SERVER=https://home.brodersen.family
+export HASS_TOKEN=$(secret-tool lookup url 'https://home.brodersen.family')
+export PATH="${HOME}/.local/bin:$PATH"
+source <(_HASS_CLI_COMPLETE=bash_source hass-cli)

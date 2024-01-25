@@ -1,3 +1,4 @@
 {
-    "terminal.external.linuxExec": "gnome-terminal"
+    "terminal.external.linuxExec": "gnome-terminal",
+    "redhat.telemetry.enabled": false
 }

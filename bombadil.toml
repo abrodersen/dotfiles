@@ -9,3 +9,6 @@ htop = { source = "htop/htoprc", target = ".config/htop/htoprc" }
 
 [[import]]
 path = "code/code.toml"
+
+[[import]]
+path = "easyeffects/easyeffects.toml"
