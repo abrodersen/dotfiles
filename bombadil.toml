@@ -6,9 +6,13 @@ git = { source = "git/gitconfig", target = ".gitconfig" }
 electron = { source = "electron/electron-flags.conf", target = ".config/electron-flags.conf" }
 chromium = { source = "chromium/chromium-flags.conf", target = ".config/chromium-flags.conf" }
 htop = { source = "htop/htoprc", target = ".config/htop/htoprc" }
+s3fs = { source = "s3fs/backblaze.service", target = ".config/systemd/user/backblaze.service" }
 
 [[import]]
 path = "code/code.toml"
 
 [[import]]
 path = "easyeffects/easyeffects.toml"
+
+[[import]]
+path = "bin/bin.toml"

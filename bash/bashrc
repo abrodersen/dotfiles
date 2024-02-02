@@ -7,6 +7,8 @@
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias ll='ls -alh'
+alias uctl='systemctl --user'
 pwgen() { /usr/bin/env pwgen -c -y -1 ${1:-24} ${2:-1}; }
 PS1='[\u@\h \W]\$ '
 
@@ -24,3 +26,9 @@ export HASS_SERVER=https://home.brodersen.family
 export HASS_TOKEN=$(secret-tool lookup url 'https://home.brodersen.family')
 export PATH="${HOME}/.local/bin:$PATH"
 source <(_HASS_CLI_COMPLETE=bash_source hass-cli)
+
+export CYBERDROP_DIR=${HOME}/cyberdrop
+export CYBERDROP_DL_DIR=${HOME}/bb/pr0zn/cyberdrop
+
+alias cbdl='cyberdrop-dl --appdata-folder ${CYBERDROP_DIR}/appdata'
+alias cbdlnow='cyberdrop-dl --appdata-folder ${CYBERDROP_DIR}/appdata --config-file ./config.yaml'

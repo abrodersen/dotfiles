@@ -1,0 +1,5 @@
+[settings]
+posthooks = [ "chmod +x ~/.local/bin/gendl" ]
+
+[settings.dots]
+gendl = { source = "bin/gendl.sh", target = ".local/bin/gendl" }
