@@ -1,0 +1,7 @@
+[Unit]
+Description=Offsite Backup
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/offsite
+Restart=no

@@ -5,3 +5,12 @@ Description=Backblaze Mount
 Type=simple
 Environment=AWS_ACCESS_KEY_ID=000f94a76ebf9e70000000016
 ExecStart=/bin/bash -c 'export AWS_SECRET_ACCESS_KEY=$(secret-tool lookup key_id ${AWS_ACCESS_KEY_ID}); exec /usr/bin/s3fs thor-personal ${HOME}/bb -f -o url=https://s3.us-west-000.backblazeb2.com -o use_path_request_style -o bucket_size=64TiB'
+Restart=always
+RestartSec=100ms
+RestartSteps=8
+RestartMaxDelaySec=30s
+StartLimitInterval=0
+
+
+[Install]
+WantedBy=default.target

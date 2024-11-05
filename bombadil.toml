@@ -8,6 +8,7 @@ chromium = { source = "chromium/chromium-flags.conf", target = ".config/chromium
 htop = { source = "htop/htoprc", target = ".config/htop/htoprc" }
 s3fs = { source = "s3fs/backblaze.service", target = ".config/systemd/user/backblaze.service" }
 
+
 [[import]]
 path = "code/code.toml"
 
@@ -16,3 +17,6 @@ path = "easyeffects/easyeffects.toml"
 
 [[import]]
 path = "bin/bin.toml"
+
+[[import]]
+path = "backup/backup.toml"

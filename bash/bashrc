@@ -32,3 +32,11 @@ export CYBERDROP_DL_DIR=${HOME}/bb/pr0zn/cyberdrop
 
 alias cbdl='cyberdrop-dl --appdata-folder ${CYBERDROP_DIR}/appdata'
 alias cbdlnow='cyberdrop-dl --appdata-folder ${CYBERDROP_DIR}/appdata --config-file ./config.yaml'
+
+export PATH="$PATH:/opt/rocm/bin"
+
+export PATH="${HOME}/.cargo/bin:$PATH"
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+alias bb=backblaze-b2
