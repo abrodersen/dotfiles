@@ -1,0 +1,9 @@
+[settings]
+posthooks = [
+    "systemctl --user daemon-reload",
+    "systemctl --user enable --now katarl.service",
+]
+
+[settings.dots]
+config = { source = "katarl/config.toml", target = ".config/katarl/config.toml" }
+service = { source = "katarl/katarl.service", target = ".config/systemd/user/katarl.service" }

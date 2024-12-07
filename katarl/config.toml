@@ -1,0 +1,9 @@
+[[inputs]]
+port = "Arturia BeatStep"
+note = "43"
+exec = "switch-input dp1"
+
+[[inputs]]
+port = "Arturia BeatStep"
+note = "42"
+exec = "switch-input usbc"

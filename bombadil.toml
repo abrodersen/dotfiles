@@ -20,3 +20,6 @@ path = "bin/bin.toml"
 
 [[import]]
 path = "backup/backup.toml"
+
+[[import]]
+path = "katarl/katarl.toml"
