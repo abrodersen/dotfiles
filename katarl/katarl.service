@@ -1,12 +1,12 @@
 [Unit]
 Description=Katarl MIDI Control Service
+StartLimitIntervalSec=0
+StartLimitBurst=0
 
 [Service]
 ExecStart=/usr/local/bin/katarl
 Restart=always
 RestartSec=100ms
-StartLimitIntervalSec=0
-StartLimitBurst=0
 
 [Install]
 WantedBy=default.target

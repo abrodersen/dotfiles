@@ -7,3 +7,13 @@ exec = "switch-input dp1"
 port = "Arturia BeatStep"
 note = "42"
 exec = "switch-input usbc"
+
+[[inputs]]
+port = "Arturia BeatStep"
+note = "50"
+exec = ["bash", "-c", "HASS_SERVER=https://home.brodersen.family HASS_TOKEN=$(secret-tool lookup url 'https://home.brodersen.family') hass-cli service call switch.turn_on --arguments entity_id=switch.smart_plug_01"]
+
+[[inputs]]
+port = "Arturia BeatStep"
+note = "51"
+exec = ["bash", "-c", "HASS_SERVER=https://home.brodersen.family HASS_TOKEN=$(secret-tool lookup url 'https://home.brodersen.family') hass-cli service call switch.turn_off --arguments entity_id=switch.smart_plug_01"]
