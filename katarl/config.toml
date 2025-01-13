@@ -1,19 +1,21 @@
 [[inputs]]
 port = "Arturia BeatStep"
 note = "43"
-exec = "switch-input dp1"
+exec = "switch-input desktop"
 
 [[inputs]]
 port = "Arturia BeatStep"
 note = "42"
-exec = "switch-input usbc"
+exec = "switch-input dock"
 
 [[inputs]]
 port = "Arturia BeatStep"
 note = "50"
 exec = ["bash", "-c", "HASS_SERVER=https://home.brodersen.family HASS_TOKEN=$(secret-tool lookup url 'https://home.brodersen.family') hass-cli service call switch.turn_on --arguments entity_id=switch.smart_plug_01"]
+hold_time = "1 second"
 
 [[inputs]]
 port = "Arturia BeatStep"
 note = "51"
 exec = ["bash", "-c", "HASS_SERVER=https://home.brodersen.family HASS_TOKEN=$(secret-tool lookup url 'https://home.brodersen.family') hass-cli service call switch.turn_off --arguments entity_id=switch.smart_plug_01"]
+hold_time = "1 second"

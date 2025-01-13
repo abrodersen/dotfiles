@@ -5,3 +5,4 @@ posthooks = [
 
 [settings.dots]
 gendl = { source = "bin/gendl.sh", target = ".local/bin/gendl" }
+switch-input = { source = "bin/switch-input.sh", target = ".local/bin/switch-input" }
