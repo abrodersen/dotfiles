@@ -1,6 +1,7 @@
 [settings]
 posthooks = [ 
     "chmod +x ~/.local/bin/gendl",
+    "chmod +x ~/.local/bin/switch-input",
 ]
 
 [settings.dots]
