@@ -1,7 +1,9 @@
 dotfiles_dir = "dotfiles"
 
 [settings.dots]
+atuin = { source = "atuin/config.toml", target = ".config/atuin/config.toml" }
 bash = { source = "bash/bashrc", target = ".bashrc" }
+blesh = { source = "blesh/init.sh", target = ".config/blesh/init.sh" }
 git = { source = "git/gitconfig", target = ".gitconfig" }
 electron = { source = "electron/electron-flags.conf", target = ".config/electron-flags.conf" }
 chromium = { source = "chromium/chromium-flags.conf", target = ".config/chromium-flags.conf" }
