@@ -19,11 +19,11 @@ if [ -n "$selection" ]; then
       ;;
     desktop)
       next_main="0x0f"
-      next_alt="0x0f"
+      next_alt="0x11"
       ;;
     dock)
       next_main="0x1b"
-      next_alt="0x11"
+      next_alt="0x0f"
       ;;
   esac
 else

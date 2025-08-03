@@ -4,6 +4,7 @@ StartLimitIntervalSec=0
 StartLimitBurst=0
 
 [Service]
+Environment=RUST_LOG=DEBUG
 ExecStart=/usr/local/bin/katarl
 Restart=always
 RestartSec=100ms

@@ -38,4 +38,6 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 alias bb=backblaze-b2
 
+alias code='codium'
+
 [[ ! ${BLE_VERSION-} ]] || ble-attach
