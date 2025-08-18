@@ -10,6 +10,7 @@ next_main=""
 next_alt=""
 
 if [ -n "$selection" ]; then
+  echo "received input selection $selection" | systemd-cat -t switch-input -p info
   case "$selection" in
     dp1)
       next_main="0x0f"
@@ -41,11 +42,13 @@ fi
 
 if [ -n "$next_main" ]; then
   echo "switching main monitor to input $next_main" | systemd-cat -t switch-input -p info
-  ddcutil --sn "$main_sn" setvcp 60 "$next_main"
+  ddcutil --sn "$main_sn" setvcp 60 "$next_main" &
 fi
 
 if [ -n "$next_alt" ]; then
   echo "switching alt monitor to input $next_alt" | systemd-cat -t switch-input -p info
-  ddcutil --sn "$alt_sn" setvcp 60 "$next_alt"
+  ddcutil --sn "$alt_sn" setvcp 60 "$next_alt" &
 fi
+
+wait
 

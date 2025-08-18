@@ -14,8 +14,8 @@ PS1='[\u@\h \W]\$ '
 
 export EDITOR=vim
 
-[[ $- == *i* ]] && source /usr/share/blesh/ble.sh
-eval "$(atuin init bash)"
+[[ -f /usr/share/bash-preexec/bash-preexec.sh ]] && source /usr/share/bash-preexec/bash-preexec.sh
+eval "$(atuin init bash --disable-up-arrow)"
 
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
@@ -37,6 +37,7 @@ export PATH="${HOME}/.cargo/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 alias bb=backblaze-b2
+alias k='kubectl'
 
 alias code='codium'
 

@@ -2,8 +2,10 @@
 posthooks = [ 
     "chmod +x ~/.local/bin/gendl",
     "chmod +x ~/.local/bin/switch-input",
+    "systemctl --user daemon-reload",
 ]
 
 [settings.dots]
 gendl = { source = "bin/gendl.sh", target = ".local/bin/gendl" }
 switch-input = { source = "bin/switch-input.sh", target = ".local/bin/switch-input" }
+systemd-path = { source = "bin/systemd-path.conf", target = ".config/environment.d/systemd-path.conf" }
