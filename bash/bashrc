@@ -36,9 +36,8 @@ export PATH="${HOME}/.cargo/bin:$PATH"
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-alias bb=backblaze-b2
+alias bb=b2
 alias k='kubectl'
-
-alias code='codium'
+alias watch='watch '
 
 [[ ! ${BLE_VERSION-} ]] || ble-attach

@@ -1,0 +1,24 @@
+[Unit]
+Description=Tabby Server
+
+[Container]
+Image=harbor.brodersen.family/internal/tabby:0.31.1-3
+ContainerName=tabby
+PublishPort=8090:8090
+AddDevice=/dev/kfd
+AddDevice=/dev/dri
+Environment=TABBY_DATA_DIR=/data
+Environment=ROCR_VISIBLE_DEVICES=2
+Environment=GPU_DEVICE_ORDINAL=2
+Environment=HIP_VISIBLE_DEVICES=2
+Volume=%h/.local/share/tabby:/data
+SeccompProfile=unconfined
+GroupAdd=video
+Exec=serve --port 8090 \
+    --model StarCoder-1B \
+    --chat-model Qwen2-1.5B-Instruct \
+    --device rocm \
+    --chat-device rocm
+
+[Install]
+WantedBy=default.target
