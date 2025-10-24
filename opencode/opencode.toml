@@ -1,2 +1,4 @@
 [settings.dots]
 opencode_config = { source = "opencode/opencode.jsonc", target = ".config/opencode/opencode.jsonc" }
+writing_assistant_agent = { source = "opencode/agents/writing-assistant.md", target = ".config/opencode/agent/writing-assistant.md" }
+summarizer_agent = { source = "opencode/agents/summarizer.md", target = ".config/opencode/agent/summarizer.md" }
