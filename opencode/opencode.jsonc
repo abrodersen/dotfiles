@@ -27,6 +27,13 @@
               "allow_fallbacks": false
             }
           }
+        },
+        "deepseek/deepseek-v3.1-terminus": {
+          "options": {
+            "provider": {
+              "order": ["deepinfra/fp4"],
+              "allow_fallbacks": false
+            }
         }
       }
     }

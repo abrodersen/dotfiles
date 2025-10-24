@@ -1,7 +1,7 @@
 ---
 description: Helps write and revise text documents with creative writing support
 mode: primary
-model: openrouter/deepseek/deepseek-v3.2-exp
+model: openrouter/deepseek/deepseek-v3.1-terminus
 temperature: 0.7
 tools:
   bash: false
