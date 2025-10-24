@@ -1,5 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "share": "disabled",
   "agent": {
     "writing-assistant": {
       "description": "Helps write and revise text documents.",
