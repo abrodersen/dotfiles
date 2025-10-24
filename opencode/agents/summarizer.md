@@ -1,7 +1,7 @@
 ---
 description: Summarizes large reference works to extract key information without filling the context window
 mode: subagent
-model: deepseek/deepseek-v3.2-exp
+model: openrouter/deepseek/deepseek-v3.2-exp
 temperature: 0.3
 tools:
   bash: false
