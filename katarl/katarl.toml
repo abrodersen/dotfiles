@@ -5,5 +5,5 @@ posthooks = [
 ]
 
 [settings.dots]
-config = { source = "katarl/config.toml", target = ".config/katarl/config.toml" }
-service = { source = "katarl/katarl.service", target = ".config/systemd/user/katarl.service" }
+katarl_config = { source = "katarl/config.toml", target = ".config/katarl/config.toml", direct = true }
+katarl_service = { source = "katarl/katarl.service", target = ".config/systemd/user/katarl.service" }

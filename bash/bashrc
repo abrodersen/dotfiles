@@ -21,6 +21,7 @@ export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 export HASS_SERVER=https://home.brodersen.family
 export HASS_TOKEN=$(secret-tool lookup url 'https://home.brodersen.family')
+export OPENROUTER_API_KEY=$(secret-tool lookup service openrouter)
 export PATH="${HOME}/.local/bin:$PATH"
 source <(_HASS_CLI_COMPLETE=bash_source hass-cli)
 

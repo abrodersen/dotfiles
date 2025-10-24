@@ -5,6 +5,6 @@ posthooks = [
 ]
 
 [settings.dots]
-offsite = { source = "backup/offsite.sh", target = ".local/bin/offsite" }
-svc = { source = "backup/offsite.service", target = ".config/systemd/user/offsite.service" }
-timer = { source = "backup/offsite.timer", target = ".config/systemd/user/offsite.timer" }
+backup_offsite_script = { source = "backup/offsite.sh", target = ".local/bin/offsite" }
+backup_service = { source = "backup/offsite.service", target = ".config/systemd/user/offsite.service" }
+backup_timer = { source = "backup/offsite.timer", target = ".config/systemd/user/offsite.timer" }

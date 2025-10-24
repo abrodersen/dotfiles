@@ -1,0 +1,2 @@
+[settings.dots]
+opencode_config = { source = "opencode/opencode.jsonc", target = ".config/opencode/opencode.jsonc" }
