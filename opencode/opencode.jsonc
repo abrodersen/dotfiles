@@ -7,7 +7,7 @@
         "deepseek/deepseek-chat-v3-0324": {
           "options": {
             "provider": {
-              "order": ["baseten/fp8"],
+              "order": ["fireworks"],
               "allow_fallbacks": false
             }
           }
@@ -15,12 +15,12 @@
         "deepseek/deepseek-chat-v3.1": {
           "options": {
             "provider": {
-              "order": ["baseten/fp8"],
+              "order": ["gmicloud/fp8"],
               "allow_fallbacks": false
             }
           }
         },
-        "deepseek/deepseek-v3.2-exp": {
+        "deepseek/deepseek-v3.2": {
           "options": {
             "provider": {
               "order": ["deepinfra/fp4"],
