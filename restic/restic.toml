@@ -1,0 +1,8 @@
+[settings]
+posthooks = [
+    "resticprofile schedule --all"
+]
+
+[settings.dots]
+credentials_dropin = { source = "restic/99-borgbase-thor-credentials.conf", target = ".config/resticprofile/99-borgbase-thor-credentials.conf" }
+restic_config = { source = "restic/profiles.toml", target = ".config/resticprofile/profiles.toml" }

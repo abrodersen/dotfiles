@@ -1,0 +1,22 @@
+[Unit]
+Description={{ .JobDescription }}
+{{ if .AfterNetworkOnline }}After=network-online.target
+{{ end }}
+
+[Service]
+Type=notify
+WorkingDirectory={{ .WorkingDirectory }}
+ExecStart={{ .CommandLine }}
+ConditionEnvironment=DISPLAY
+ConditionEnvironment=WAYLAND_DISPLAY
+{{ if .Nice }}Nice={{ .Nice }}
+{{ end -}}
+{{ if .CPUSchedulingPolicy }}CPUSchedulingPolicy={{ .CPUSchedulingPolicy }}
+{{ end -}}
+{{ if .IOSchedulingClass }}IOSchedulingClass={{ .IOSchedulingClass }}
+{{ end -}}
+{{ if .IOSchedulingPriority }}IOSchedulingPriority={{ .IOSchedulingPriority }}
+{{ end -}}
+{{ range .Environment -}}
+Environment="{{ . }}"
+{{ end -}}

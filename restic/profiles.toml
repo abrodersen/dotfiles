@@ -1,0 +1,160 @@
+version = "1"
+
+[global]
+  priority = "low"
+
+[primary]
+  # Password is read from secret store using this repo ID
+  # Run: secret-tool store restic_id <repo_id>
+  password-command = "secret-tool lookup restic_id thor-primary"
+  systemd-drop-in-files = ["99-borgbase-thor-credentials.conf"]
+  repository-file = "${XDG_RUNTIME_DIR}/restic-repo-url"
+
+  run-before = [
+    "bash -c 'umask 077 && echo -n rest:https://key8u2fq:$(cat $CREDENTIALS_DIRECTORY/borgbase-thor-password)@key8u2fq.repo.borgbase.com > $XDG_RUNTIME_DIR/restic-repo-url'"
+  ]
+
+  run-finally = [
+    "bash -c 'rm -f $XDG_RUNTIME_DIR/restic-repo-url'"
+  ]
+
+
+  [primary.backup]
+    source = [
+      # Core user data
+      "$HOME/Documents",
+      "$HOME/Pictures",
+      "$HOME/Videos",
+      "$HOME/Music",
+      "$HOME/Desktop",
+      "$HOME/cyberdrop",
+      "$HOME/games",
+      "$HOME/projects",
+      "$HOME/Calibre Library",
+      
+      # Development (if applicable)
+      "$HOME/dev",
+      
+      # Important config directories
+      "$HOME/.config",
+      "$HOME/.local/share",
+      "$HOME/.ssh",
+      "$HOME/.gnupg",
+      
+      # Shell configs
+      "$HOME/.bashrc",
+      "$HOME/.bash_profile",
+      "$HOME/.profile",
+      "$HOME/.zshrc",
+      "$HOME/.zprofile",
+    ]
+
+    exclude = [
+      # ===== Temporary & Cache Files =====
+      "*.tmp",
+      "*.temp",
+      "*.swp",
+      "*~",
+      ".cache",
+      "Cache",
+      "CacheStorage",
+      "GPUCache",
+      "ShaderCache",
+      
+      # ===== Development Artifacts =====
+      "node_modules",
+      "__pycache__",
+      "*.pyc",
+      ".git/objects",        # Keep .git config but skip large objects
+      ".venv",
+      "venv",
+      ".tox",
+      ".nox",
+      "target",              # Rust/Java build output
+      "build",
+      "dist",
+      "*.egg-info",
+      ".cargo/registry",
+      ".cargo/git",
+      ".rustup/toolchains",
+      ".npm/_cacache",
+      ".pnpm-store",
+      
+      # AUR build artifacts (owned by root, cause permission errors)
+      "aur.archlinux.org",
+      ".cache/yay",
+      ".cache/paru",
+      
+      # ===== Large/Recreatable Application Data =====
+      # Browsers (profiles have tons of cache)
+      ".config/google-chrome/*/Service Worker",
+      ".config/google-chrome/*/File System",
+      ".config/google-chrome/*/IndexedDB",
+      ".config/chromium/*/Service Worker",
+      ".config/chromium/*/File System",
+      ".mozilla/firefox/*/storage",
+      ".mozilla/firefox/*/cache2",
+      
+      # Electron apps (VS Code, Discord, Slack, etc.)
+      ".config/Code/CachedData",
+      ".config/Code/CachedExtensionVSIXs",
+      ".config/Code/Cache",
+      ".config/Code/GPUCache",
+      ".config/discord/Cache",
+      ".config/discord/Code Cache",
+      ".config/Slack/Cache",
+      ".config/Slack/Service Worker",
+      ".config/spotify/*/Storage",
+      
+      # Package managers & tools
+      ".local/share/Steam",
+      ".local/share/lutris",
+      ".local/share/Trash",
+      ".local/share/baloo",          # KDE file indexer (if present)
+      ".local/share/tracker",        # GNOME file indexer
+      ".local/share/flatpak/repo",   # Flatpak downloads
+      ".local/share/containers",     # Podman images
+      
+      # Thumbnails & previews
+      ".local/share/thumbnails",
+      ".local/share/gvfs-metadata",
+      
+      # GNOME-specific
+      ".local/share/gnome-shell/extensions/*/locale",  # Extension translations
+      
+      # ===== Virtual Machines & Large Files =====
+      "*.iso",
+      "*.qcow2",
+      "*.vmdk",
+      "*.vdi",
+      ".local/share/gnome-boxes",
+      "VirtualBox VMs",
+
+      "tombs/"
+    ]
+
+
+    tag = [ "primary" ]
+
+    # Schedule: run daily at 2:00 AM
+    # Only runs when user is logged in (requires graphical session)
+    schedule = "*-*-* 02:00:00"
+    schedule-permission = "user_logged_on"
+
+  [primary.retention]
+    # Retention policy
+    keep-hourly = 6
+    keep-daily = 7
+    keep-weekly = 4
+    keep-monthly = 6
+    keep-yearly = 2
+    
+    # Run forget after backup
+    after-backup = true
+    prune = true
+
+  [primary.check]
+    # Periodic repository health check
+    schedule = "weekly"
+    schedule-permission = "user_logged_on"
+    read-data-subset = "10%"  # Check 10% of data each week

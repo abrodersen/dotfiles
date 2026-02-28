@@ -8,6 +8,7 @@ import = [
     { path = "katarl/katarl.toml" },
     { path = "podman/podman.toml" },
     { path = "opencode/opencode.toml" },
+    { path = "restic/restic.toml" },
 ]
 
 [settings.dots]
@@ -18,4 +19,5 @@ git = { source = "git/gitconfig", target = ".gitconfig" }
 electron = { source = "electron/electron-flags.conf", target = ".config/electron-flags.conf" }
 chromium = { source = "chromium/chromium-flags.conf", target = ".config/chromium-flags.conf" }
 htop = { source = "htop/htoprc", target = ".config/htop/htoprc" }
+kanidm = { source = "kanidm/config", target = ".config/kanidm" }
 s3fs = { source = "s3fs/backblaze.service", target = ".config/systemd/user/backblaze.service" }
