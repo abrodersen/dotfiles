@@ -2,6 +2,7 @@
 set -euo pipefail
 
 selection=${1:-}
+switch_delay=${2:-2}
 
 main_sn="7Z1S093"
 alt_sn="1C0DSP3"
@@ -42,13 +43,15 @@ fi
 
 if [ -n "$next_main" ]; then
   echo "switching main monitor to input $next_main" | systemd-cat -t switch-input -p info
-  ddcutil --sn "$main_sn" setvcp 60 "$next_main" &
+  ddcutil --sn "$main_sn" setvcp 60 "$next_main"
 fi
 
 if [ -n "$next_alt" ]; then
+  if [ -n "$next_main" ]; then
+    echo "waiting ${switch_delay}s for display link to settle" | systemd-cat -t switch-input -p info
+    sleep "$switch_delay"
+  fi
   echo "switching alt monitor to input $next_alt" | systemd-cat -t switch-input -p info
-  ddcutil --sn "$alt_sn" setvcp 60 "$next_alt" &
+  ddcutil --sn "$alt_sn" setvcp 60 "$next_alt"
 fi
-
-wait
 

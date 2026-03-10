@@ -1,6 +1,7 @@
 ---
 description: Summarizes large reference works to extract key information without filling the context window
 mode: subagent
+model: anthropic/claude-3-haiku
 temperature: 0.3
 tools:
   bash: false
