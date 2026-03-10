@@ -31,6 +31,7 @@ version = "1"
       "$HOME/games",
       "$HOME/projects",
       "$HOME/Calibre Library",
+      "$HOME/Downloads/*.pdf",
       
       # Development (if applicable)
       "$HOME/dev",
