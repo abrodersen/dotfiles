@@ -9,6 +9,7 @@ import = [
     { path = "podman/podman.toml" },
     { path = "opencode/opencode.toml" },
     { path = "restic/restic.toml" },
+    { path = "taskbook/taskbook.toml" },
 ]
 
 [settings.dots]

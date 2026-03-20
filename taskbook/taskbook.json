@@ -1,0 +1,12 @@
+{
+  "taskbookDirectory": "~/.local/share/taskbook",
+  "displayCompleteTasks": true,
+  "displayProgressOverview": true,
+  "theme": "default",
+  "sync": {
+    "enabled": false,
+    "serverUrl": "http://localhost:8080"
+  },
+  "sortMethod": "priority",
+  "defaultView": "board"
+}
