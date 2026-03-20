@@ -4,3 +4,4 @@ system_prompt = { source = "opencode/system-prompt.md", target = ".config/openco
 taskbook_skill = { source = "opencode/skills/taskbook", target = ".config/opencode/skills/taskbook" }
 coder_prompt = { source = "opencode/coder-prompt.md", target = ".config/opencode/coder-prompt.md" }
 maker_prompt = { source = "opencode/maker-prompt.md", target = ".config/opencode/maker-prompt.md" }
+assistant_prompt = { source = "opencode/assistant-prompt.md", target = ".config/opencode/assistant-prompt.md" }
