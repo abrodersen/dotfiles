@@ -1,0 +1,10 @@
+{
+  "name": "taskbook",
+  "description": "Taskbook (tb) - Terminal-based task management",
+  "commands": [
+    {
+      "name": "tb",
+      "description": "Run Taskbook CLI commands"
+    }
+  ]
+}

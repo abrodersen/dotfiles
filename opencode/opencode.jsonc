@@ -1,42 +1,16 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "share": "disabled",
-  "provider": {
-    "openrouter": {
-      "models": {
-        "deepseek/deepseek-chat-v3-0324": {
-          "options": {
-            "provider": {
-              "order": ["fireworks"],
-              "allow_fallbacks": false
-            }
-          }
-        },
-        "deepseek/deepseek-chat-v3.1": {
-          "options": {
-            "provider": {
-              "order": ["gmicloud/fp8"],
-              "allow_fallbacks": false
-            }
-          }
-        },
-        "deepseek/deepseek-v3.2": {
-          "options": {
-            "provider": {
-              "order": ["deepinfra/fp4"],
-              "allow_fallbacks": false
-            }
-          }
-        },
-        "deepseek/deepseek-v3.1-terminus": {
-          "options": {
-            "provider": {
-              "order": ["deepinfra/fp4"],
-              "allow_fallbacks": false
-            }
-          }
-        }
-      }
-    }
-  }
+  "instructions": ["~/.config/opencode/system-prompt.md"],
+  "default_agent": "build",
+  "agent": {
+    "coder": {
+      "mode": "primary",
+      "prompt": "~/.config/opencode/coder-prompt.md",
+    },
+    "maker": {
+      "mode": "subagent",
+      "prompt": "~/.config/opencode/maker-prompt.md",
+    },
+  },
 }
